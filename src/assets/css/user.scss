@@ -1,0 +1,74 @@
+.role_page {
+  .role_row-sel .el-input__inner {
+    height:24px;
+    line-height:24px;
+  }
+  .role_row-search {
+    .el-input__inner {
+      height:35px;
+      line-height:35px;
+      border-radius:4px 0 0 4px;
+      border-right:0;
+    }
+    .el-button {
+      width:70px;
+      height:35px;
+      line-height:35px;
+      border-radius:0 4px 4px 0;
+      padding:0;
+      background:rgb(25,158,216);
+      border-color:rgb(25,158,216);
+    }
+  }
+  .role_row-table .el-table {
+    th {
+      text-align: left;
+      font: 18px 'PingFangSC-Regular', 'PingFang SC';
+    }
+    td {
+      text-align: left;
+      font: 14px '微软雅黑';
+      color:#666;
+    }
+    .el-button+.el-button {
+        margin-left: 0;
+    }
+    .el-button--small, .el-button--small.is-round {
+        padding: 0;
+    }
+  }
+}
+@keyframes dialog-fade-in {
+  0% {
+    transform: translateY(-20%) rotateX(90deg);
+    -webkit-transform: translateY(-20%) rotateX(90deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotateX(0deg);
+    -webkit-transform: translateY(0) rotateX(0deg);
+    opacity: 1;
+  }
+}
+@keyframes dialog-fade-out {
+  0% {
+    transform: translateY(0) rotateX(0deg);
+    -webkit-transform: translateY(0) rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20%) rotateX(90deg);
+    -webkit-transform: translateY(-20%) rotateX(90deg);
+    opacity: 1;
+  }
+}
+.roleBox {
+  .el-checkbox {
+    margin-left:20px;
+    .el-checkbox__label {
+      padding-left:5px;
+      font-size:13px;
+    }
+  }
+  .el-checkbox+.el-checkbox {margin-left:20px;}
+}

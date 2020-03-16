@@ -1,0 +1,347 @@
+.qrcode-poster-design {
+  .el-form {
+    display: flex;
+    justify-content: flex-start;
+    height: 700px;
+    padding: 20px;
+    background: #ffffff;
+
+    .el-col {
+      width: auto;
+
+      .el-form-item__content {
+        display: flex;
+        justify-content: flex-start;
+
+        .newPosition {
+          margin-left: 10px;
+        }
+      }
+
+      .el-select+.el-select {
+        margin-left: 10px;
+      }
+    }
+
+    .el-col+.el-col {
+      padding-left: 50px;
+      flex: 1;
+    }
+
+    .el-icon {
+      font-size: 30px;
+      color: #1AA194;
+      margin-left: 30px;
+    }
+
+    .avatar-uploader .el-upload {
+      width: 325px;
+      height: 579px;
+      line-height: 579px;
+      background: #eeeeee;
+      border: 1px dashed #d9d9d9;
+      border-radius: 6px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar-uploader .el-upload:hover {
+      border-color: #1AA194;
+    }
+
+    .avatar-uploader-btns {
+      width: 325px;
+      padding: 0 30%;
+      display: flex;
+      margin-top: 10px;
+      justify-content: space-around
+    }
+
+    .avatar-uploader-icon {
+      font-size: 16px;
+      color: #8c939d;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 325px;
+      height: 579px;
+      display: block;
+    }
+  }
+}
+
+.qrcode-poster-list {
+  .qrcode-poster-list-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #000000;
+
+    .qrcode-poster-list-item-lside {
+      // max-width: 188px;
+      // max-height: 334px;
+      max-width: 94px;
+      max-height: 167px;
+      position: relative;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .qrcode-image-preview {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ffffff;
+        opacity: 0.7;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 0 15px;
+        font-size: 14px;
+        line-height: 20px;
+        cursor: pointer;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -khtml-user-select: none;
+        user-select: none;
+      }
+    }
+
+    .qrcode-poster-list-item-center {
+      padding: 20px 0;
+
+      .content_top_tit {
+        font-size: 16px;
+
+        span {
+          font-size: 12px;
+          margin-left: 22px;
+
+          &.color-0 {
+            color: #11CE6F;
+          }
+
+          &.color-1 {
+            color: #0099FF;
+          }
+
+          &.color-2 {
+            color: #0099FF;
+          }
+
+          &.color-3 {
+            color: #11CE6F;
+          }
+
+          &.color-4 {
+            color: #FF0000;
+          }
+
+          &.color-5 {
+            color: #0099FF;
+          }
+
+          &.color-6 {
+            color: #0099FF;
+          }
+
+          &.color-7 {
+            color: #999999;
+          }
+
+          &.color-8 {
+            color: #FF0000;
+          }
+
+          .color-9 {
+            color: #FF0000;
+          }
+        }
+      }
+
+      .content_center_txt {
+        // font-size: 12px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .qrcode-poster-list-item-rside {
+      padding-top: 20px;
+
+      .el-button {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+@import '../css/sprite';
+
+@mixin sprite {
+  background: url(../images/sprite.png) no-repeat;
+}
+
+#routine-activity-detail-page {
+  .routine-activity-detail {
+    .submitBtn {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .box-card {
+      margin-top: 20px;
+
+      .el-card__header {
+        .b-tit {
+          font-size: 20px;
+          color: #57a0f2;
+          display: inline-block;
+        }
+
+        .s-tit {
+          font-size: 12px;
+          color: #666;
+          display: inline-block;
+          padding-left: 5px;
+        }
+      }
+    }
+
+    .el-form-item {
+      .sentTime {
+        display: flex;
+
+        .questionIcon {
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+          background: url(~@/assets/images/question.png) no-repeat center center;
+          background-size: 80% 80%;
+        }
+      }
+
+      .newPosition1 {
+        background: none;
+      }
+    }
+
+    .attachBox {
+      .attachItem {
+        display: inline-block;
+        margin: 0 10px;
+      }
+    }
+
+    .routine-activity-detail-box {
+      .routine-activity-detail-item {
+        .settingSelect {
+          font-size: 14px;
+          width: auto;
+          min-width: 101px;
+          height: 44px;
+          line-height: 44px;
+          text-align: center;
+          color: #777;
+          box-shadow: none;
+          display: inline-block;
+          margin-right: 20px;
+          cursor: pointer;
+          position: relative;
+          padding: 0 5px;
+          border: none;
+          border-radius: 0px;
+          -webkit-box-shadow: none;
+          border-radius: 0px;
+          background: inherit;
+          background-color: #f2f2f2;
+
+          i {
+            position: absolute;
+            right: 0;
+          }
+        }
+
+        .active-select {
+          background-color: #1AA194;
+          color: #fff;
+        }
+
+        .item-tit {
+          font-size: 18px;
+          font-weight: normal;
+          color: #555;
+          display: inline-block;
+          padding-left: 10px;
+          border-left: 4px solid #57a0f2;
+          line-height: 18px;
+        }
+
+        .item-con {
+          padding: 20px;
+          overflow: hidden;
+
+          .actTxt {
+            font-weight: normal;
+            color: #2c3e50;
+          }
+
+          .el-form-item {
+            margin: 5px 0;
+          }
+
+          .sjgg-item {
+            padding-left: 20px;
+            margin: 20px 0 5px -20px;
+            overflow: hidden;
+            border-bottom: 2px dashed #ddd;
+
+            .actImage-list {
+              display: flex;
+
+              .actImage-item {
+                width: 120px;
+                margin-right: 10px;
+                overflow: hidden;
+                text-align: center;
+
+                .actImage {
+                  width: 120px;
+                  height: 120px;
+                  display: block;
+                  overflow: hidden;
+                  border: 1px dashed #2cf;
+                  position: relative;
+                  cursor: pointer;
+
+                  img {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    max-width: 100%;
+                    max-height: 100%;
+                    outline: none;
+                  }
+                }
+              }
+            }
+
+            &-tit {
+              line-height: 30px;
+              margin-left: -15px;
+              color: #57a0f2;
+            }
+          }
+        }
+      }
+    }
+  }
+}

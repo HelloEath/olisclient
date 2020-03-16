@@ -1,0 +1,13 @@
+.table-expand-form {
+  .el-form-item {
+  	width: 100%;
+    .el-form-item__label {
+      line-height: 32px;
+    }
+    .el-form-item__content {
+      width: 88%;
+      line-height: 32px;
+      vertical-align: middle;
+    }
+  }
+}

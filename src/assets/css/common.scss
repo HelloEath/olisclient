@@ -1,0 +1,335 @@
+@import './search_bar';
+@import './el_dialog';
+@import './transition';
+@import './table';
+@import './form';
+/*媒体查询*/
+@media (min-width: 1024px){
+  body{font-size: 12px}
+} /*>=1024的设备*/
+
+@media (min-width: 1100px) {
+body{font-size: 10px}
+} /*>=1100的设备*/
+@media (min-width: 1280px) {
+body{font-size: 12px;}
+} /*>=1280的设备*/
+
+@media (min-width: 1366px) {
+
+body{font-size: 12px;}
+}
+
+@media (min-width: 1440px) {
+  body{font-size: 14px !important;}
+}
+
+@media (min-width: 1680px) {
+body{font-size: 14px;}
+}
+@media (min-width: 1920px) {
+body{font-size: 16px;}
+// page-header-form 筛选条件高度
+.page-header-form {
+  .el-col {
+    height: 44px;
+  }
+}
+}
+
+$home-menu-width: 200px;//menu宽度
+$home-head-height: 60px;//header高度
+$home-head-bg:#fafcff;//header背景颜色
+$app-bg:#f5f9ff;
+$color-header:#fd5c3f;
+$color-title:#1069f8;
+$color-primary:#41ddf1;
+$color-success:#18c22f;
+$color-warning:#ff9900;
+$color-error:#ea3031;
+$color-purple:#c356f2;
+$color-border:#e9eaed; //边框色
+$color-red:rgba(255, 0, 0, 0.447058823529412); // 红色标注字色
+$menu-active:#cfe1fe;
+$line-height-6:32px; //列表标题、左边栏导航展示
+$color-333:#333;//字体颜色#333
+$color-666:#666;//字体颜色#666
+$font-size-20:20px; //列表标题
+$font-size-18:18px; //列表副标题
+$font-size-16:16px; //列表副标题
+$font-size-14:14px; //说明文字、数据说明文字
+
+//login页引入
+$app-bg:#f3f4f8;
+$home-header-height:60px;
+$page-header-height:50px;
+$home-menu-width:240px;
+$color-header:#fd5c3f;
+$color-primary:#ff962f;
+$color-success:#02b2ef;
+$color-warning:#eb9e05;
+$color-error:#fa5555;
+$color-border:#e9eaed; //边框色
+$color-p:#666666; //普通段落 如：列表内容、普通段落、左边栏常态文字
+$color-i:#999999; //次要、辅助星文字 如：列表中次要内容、数据说明、提示性文案
+$color-red:rgba(255, 0, 0, 0.447058823529412); // 红色标注字色
+$font-size-primary:16px;
+$font-size-0:20px; //数据展示
+$line-height-0:28px; //活动列表中数据行高
+$font-size-8:18px; //表单标题展示
+$line-height-8:34px; //表单标题行高
+$font-nav:14px; //列表标题、左边栏导航展示
+$line-height-6:32px; //列表标题、左边栏导航展示
+$font-size-4:14px; //列表副标题、选项、说明文字、数据说明文字
+$line-height-4:28px; //列表副标题、选项、说明文字、数据说明文字
+$font-size-2:12px; //未读信息提示
+$line-height-2:24px; //未读信息提示
+$border:1px solid $color-border;
+
+.red{
+  color:$color-red;
+}
+.clearfix:after{
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+.clearfix{
+  zoom:1;
+}
+
+.fr {
+  float: right;
+}
+.fl {
+  float: left;
+}
+.iconSuccess{
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #67c23a;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 2px;
+}
+.iconClose{
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f56c6c;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 2px;
+}
+.intentionBox{
+  margin-top: 20px;
+  .el-radio-group{
+    width: 100px;
+  }
+  .el-radio-button__inner{
+    display: block;
+    border: 1px solid rgba(204, 204, 204, 1) !important;
+    margin: 20px;
+    border-radius: 5px !important;
+  }
+  .el-radio-button__orig-radio:checked+.el-radio-button__inner{
+    border-color: rgba(204, 204, 204, 1);
+    -webkit-box-shadow: 0px 0 0 0 #1AA194;
+    box-shadow: 0px 0 0 0 #1AA194;
+  }
+}
+.activity-module-header {
+  .el-date-editor.el-input, .el-date-editor.el-input__inner {
+    width:180px;
+  }
+  .activity-module-header-form {
+    .el-input {
+      width:180px;
+    }
+  }
+}
+
+.flex_page {
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    padding:20px 0 40px;
+}
+.noData {background:#fff;color:#666;line-height:50px;font-size:16px;text-align:center;}
+.block {
+  display: block;
+  .tips {
+    padding-left: 20px;
+    color:#333;
+  }
+}
+/*导航栏字体图标颜色白色*/
+.el-submenu__title i {
+    color: #fff;
+}
+.el-submenu .el-menu {
+    border: none;
+    background: inherit;
+}
+.el-submenu .el-menu-item {
+  min-width: 180px;
+}
+.el-submenu__title:hover {
+  background:#1AA194;
+}
+
+//详情页面内容字体
+.actTxt {
+    font-size:14px;
+    font-weight:normal;
+    color:#2c3e50;
+    word-break: break-all;
+}
+
+//tab栏样式
+.el-tabs__header {
+    position: relative;
+    padding: 10px 10px 0 10px;
+    background: #fff;
+    margin:0;
+}
+
+//将.el-form-item--small下的内容的line-height设为31，解决浮动问题
+.el-form-item--small {
+  .el-form-item__content, .el-form-item__label {
+    line-height: 33px !important;
+  }
+}
+
+.el-form-item{
+  margin-bottom:25px;
+  position: relative;
+  .el-form-item__label {
+    height: 32px;
+    line-height: 32px;
+    color: #666;
+    font-weight: normal;
+    padding: 0 6px 0 0;
+    &.required {
+      &:before {
+        content:'*';
+        font-size: 120%;
+        color:#e4393c;
+        padding-right:2px;
+      }
+    }
+  }
+  //.el-form-item中的字体图标样式
+  .itemUnit {
+    position:absolute;
+    top:0;
+    right:40px;
+  }
+  .el-form-item-icon {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    right: -30px;
+    transform: translateY(-50%);
+    color:#219fd6;
+  }
+}
+
+// icon - style
+.question-small {
+  width:20px;
+  height:20px;
+  fill: #57a0f2;
+  position: absolute;
+  top:50%;
+  margin-top: -9px;
+  z-index: 101;
+}
+.question-big {
+  width: 28px;
+  height: 28px;
+  fill: #57a0f2;
+  position: absolute;
+  top: 50%;
+  margin-top: -14px;
+  z-index: 101;
+}
+
+// pagination
+.el-pagination {
+  text-align: center;
+}
+.el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li {
+  font-weight: normal;
+  &:hover {
+    background-color: #1AA194;
+    color: #fff!important;
+  }
+}
+
+ // tabs font color
+.el-tabs__item {
+  color: #555;
+}
+
+.table-card {
+  .el-card__body {
+    padding: 10px !important;
+  }
+}
+
+/*修复火狐浏览器 显示问题*/
+.el-scrollbar.is-empty .el-select-dropdown__wrap {
+	height:0
+}
+
+.no-x-scroll {
+  .el-scrollbar__wrap {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}
+
+/*字符超出范围用省略号代替*/
+.span-ellipsis {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+/* 修复IE11浏览器 显示问题 */
+@media screen and(-ms-high-contrast:active),(-ms-high-contrast:none) {
+  .el-dialog--center .el-dialog__body{
+    text-align: left;
+  }
+}
+
+/* 修复IE10浏览器 显示问题 */
+.page-wrap {
+  .el-row--flex {
+    .button-item {
+      margin-left: auto\0; /* 只在IE8 IE9 IE10生效 */
+    }
+  }
+}
+
+/* IE默认felx-shrink不缩放 */
+.el-row.el-row--flex {
+  .el-select {
+    -ms-flex-negative: 1;
+  }
+}
+.is-justify-space-between.el-row--flex {
+  .el-col {
+      -ms-flex-negative: 1;/* 事件触发   */
+    }
+}
+

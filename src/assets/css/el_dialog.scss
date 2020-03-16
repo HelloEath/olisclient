@@ -1,0 +1,189 @@
+$unite-width: 640px;
+$max-height: 550px;
+
+//public dialog style start
+.el-dialog {
+    width: $unite-width;
+    margin-top: inherit!important; // 去掉 margin-top: 15vh;
+    position: absolute;
+    padding: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)!important;
+    overflow: hidden;
+    z-index: 2008;
+    .el-form-item {
+      margin-bottom: 20px;
+    }
+    .el-dialog__header {
+      width: 100%;
+      padding: 14px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #d7d7d7;
+      background: #fff;
+      z-index: 999;
+      .el-dialog__headerbtn {
+        font-size: 24px;
+        top: 10px;
+        z-index: 1000;
+        .el-dialog__close {
+          color: #353535;
+          font-weight: normal;
+        }
+      }
+    }
+    .el-dialog__body {
+      position: relative;
+      padding: 20px 20px 20px 20px;
+      max-height: $max-height;
+      overflow: auto;
+      .dialog-txt {
+        margin-bottom:30px;
+      }
+      .dialog-tips {
+          position: relative;
+          width: 100%;
+          text-align: center;
+          margin-bottom: 18px;
+          display: inline-block;
+          text-align: center;
+          font:12px '微软雅黑';
+          color:#333;
+          i {
+            color:#f00;
+            font-style: normal;
+          }
+      }
+    }
+    .el-dialog__footer {
+      padding: 0 0 20px 0;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .el-form-item {
+      margin-bottom: 25px;
+      .red_txt {
+        color:#f00;
+        font:14px '微软雅黑';
+        line-height:40px;
+      }
+    }
+    .el-form-item.btns {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-top: 30px;
+        .el-button {
+          width: 100px;
+          padding: 10px 0;
+          margin: 0 5px;
+          box-sizing: border-box;
+        }
+    }
+} //public dialog style end
+
+// 提交审核
+.submitAudit {
+  .el-dialog--center .el-dialog__body {
+    text-align: left!important;
+  }
+}
+
+//activity_audit.vue, realtime_audit_details 审批通过
+.audit_details_dialog,.realtime_audit_details_dialog {
+  .el-dialog {
+    .el-select {
+      margin-right: 5px;
+    }
+  }
+}
+
+//uploadDialog.vue 素材管理
+.addImg {
+  .el-dialog .el-input__inner {
+    width: 440px;
+  }
+}
+.material-text {
+  .addText {
+    .el-input, .el-textarea {
+      width: 420px;
+    }
+    .el-textarea {
+      height: 120px;
+      &__inner {
+        height:100%;
+      }
+    }
+  }
+}
+
+//systemLogErrror.vue 日志系统错误信息
+.error-dialog {
+  .el-dialog {
+      width: 80%!important;
+      .errorConent {
+          color: red;
+      }
+  }
+}
+
+//账户管理
+.account_management, .role_page_superman {
+  .el-dialog {
+    .el-input {
+      width: 390px;
+    }
+  }
+}
+
+//role_permission.vue 角色权限
+.role_dialog {
+  .el-input__inner {
+    width: 450px;
+  }
+}
+
+//customer-strategy.vue 客户名单策略
+.customer-strategy-dialog {
+  .el-dialog {
+    .el-input {
+      width: 388px;
+    }
+    .btns {
+      .el-form-item__content {
+        margin-left: 30px!important;
+      }
+    }
+  }
+}
+
+//activity-multi-wave-design.vue 魔方设计
+.activity-multi-wave-design {
+  .el-dialog {
+    width: 950px;
+    .el-form-item__content {
+      width: 760px;
+    }
+    .el-input__inner {
+      width: 400px;
+    }
+    .activity-role-container {
+      background-color: transparent!important;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      .subItem {
+        margin-left: 80px;
+      }
+    }
+    .el-dialog__body {
+      max-height: 570px!important;
+    }
+    .el-form {
+        .activity-role-container {
+            background-color: #efefef;
+            padding: 20px;
+        }
+    }
+  }
+}

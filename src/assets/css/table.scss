@@ -1,0 +1,19 @@
+// table header -style
+// :header-cell-style="{background:'#F9FAFC', borderTop:'1px solid #ebeef5'}"
+.el-table th {
+	background: #fff;
+	font-size: 14px;
+    font-weight: bold;
+    color: #444;
+}
+
+// 表格对齐方向控制
+.el-table .cell {
+    // text-align: center;
+    color: #2c3e50;
+   	.el-dropdown {
+   		font-size: 12px;
+    	margin-left: 10px;
+    	cursor: pointer;
+   	}
+}

@@ -1,0 +1,55 @@
+.page-head {
+  margin-bottom: 10px;
+  position: relative;
+  .searchTab {
+    margin-bottom: 20px;
+  }
+  .el-row {
+      &.el-row--flex {
+          flex-flow: column;
+      }
+      .search-form {
+          border-radius: 5px;
+          overflow:hidden;
+          height: 40px;
+          &.showMore {
+            height: auto;
+          }
+          .el-form-item {
+            line-height: 32px;
+            width: 100%;
+            .el-form-item__label {
+              height: 32px;
+              line-height: 32px;
+              font-size: 14px;
+            }
+          }
+          .el-form-item:nth-last-of-type(1) {
+              margin-bottom:15px;
+          }
+          .el-date-editor.el-input, .el-date-editor.el-input__inner,.el-input,.el-select{
+              width: 100%;
+          }
+          .el-col {
+            height: 40px;
+            line-height: 33px;
+          }
+      }
+      &.button-bar {
+        &.fun { 
+          background: #fff5f5;
+          text-align: right;
+        }
+        text-align: center;
+        .button-item {
+          margin: 0 15px;
+          width: 100px;
+        }
+      }
+      .el-form--inline .el-form-item {
+          margin-right:0;
+      }
+  }
+}
+
+

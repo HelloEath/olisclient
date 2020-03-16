@@ -1,0 +1,99 @@
+@import '../../assets/css/sprite';
+@mixin sprite{
+	background:url(../../assets/images/sprite.png) no-repeat;
+}
+$bg-white:#fff;
+$color-warning:#DE8B35;
+$color-error:#FF6633;
+$box-border:1px solid rgb(228, 228, 228);
+$color-title:#666;
+.index-row-first{
+	margin-top: 20px;
+	.grid-content {
+		height:160px;
+		border:$box-border;
+		box-sizing: border-box;
+		background: $bg-white;
+		padding:20px;
+		.grid-content-tit {
+			display:flex;
+			justify-content:space-between;
+			padding-bottom:15px;
+			border-bottom:1px solid rgb(228, 228, 228);
+			.grid-content-txt {
+				color:$color-title;
+				@media (max-width: 1100px) {
+					font: 16px/23px NotoSansHans-Regular;
+				} /*<=1100的设备*/
+				font: 18px/25px NotoSansHans-Regular;
+				position:relative;
+				padding-left:35px;
+				i {
+					width:25px;
+					height:25px;
+					display:block;
+					position:absolute;
+					left:0;
+					top:0;
+					@include sprite;
+				}
+				.icon-1 {
+					@include nav02;
+				}
+				.icon-2 {
+					@include spsx;
+				}
+				.icon-3 {
+					@include dbsx;
+				}
+			}
+		}
+		.grid-content-lst {
+			display:flex;
+			margin-top:18px;
+			.grid-content-itm {
+				flex:1;
+				text-align:center;
+				border-right:1px solid #ddd;
+				&:last-child{border:none}
+				.itm-txt {
+					@media (max-width: 1100px) {
+						font: 14px/23px NotoSansHans-Regular;
+					} /*<=1100的设备*/
+					font:16px/25px NotoSansHans-Regular;
+					color:#666;
+				}
+				.itm-value {
+					padding-top:5px;
+					@media (max-width: 1100px) {
+						font: 20px/26px NotoSansHans-Regular;
+					} /*<=1100的设备*/
+					font: bold 24px/30px NotoSansHans-Regular;
+					color:#333;
+					&.primary a {color:#1069f8;}
+					&.error a {color:#de3145;}
+				}
+			}
+		}
+	}
+	.bg-white {background:$bg-white;}
+}
+.el-button--primary {
+	background:$bg-white;
+	height:25px;
+	line-height:25px;
+	border-radius:2px;
+	padding:0 10px;
+	color: #1069f8;
+	border-color:#1069f8;
+	border-radius:12.5px;
+	transition: all 0.5s;
+	@media (max-width: 1100px) {
+		font: 12px/23px NotoSansHans-Regular;
+	} /*<=1100的设备*/
+	font: bold 14px/25px NotoSansHans-Regular;
+	&:hover,&:focus{
+		background: rgba(2, 178, 238, 1);
+		color: #fff;
+	}
+}
