@@ -51,12 +51,7 @@
 
           }
       },
-    watch:{
-      "allBrandListByMobile"(val){
-        console.log(val)
-        //this.t=val['A'][0].
-      }
-    },
+
       computed: {
         topImgUrl(){
           return localStorage.getItem("topImgUrl")

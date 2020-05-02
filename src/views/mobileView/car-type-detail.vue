@@ -87,7 +87,6 @@
       },
       created(){
         this.$store.state.isShowStep=true;
-        console.log("品牌id="+this.$route.query.brandId);
           this.getAllCarTypeListForMobile(this.$route.query.brandId);
       },
       methods:{

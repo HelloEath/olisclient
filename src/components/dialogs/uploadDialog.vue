@@ -112,7 +112,6 @@
         let flag = true;
         let obj = this.fileMessage;
        for(let key in obj){
-        console.log(obj);
           if(!obj[key]){
             flag = false;
           }

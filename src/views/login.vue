@@ -102,7 +102,6 @@
                 _this.$store.commit('login', resp.user);
                 this.remenberPassWord();
                 var path = _this.$route.query.redirect;
-                console.log("sdd"+path);
                 _this.$router.replace({path: path == '/' || path == undefined ? '/home' : path});
               }
             });

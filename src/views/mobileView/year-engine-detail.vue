@@ -75,10 +75,9 @@
       },
       created(){
         this.$store.state.isShowStep=true;
-        console.log("品牌id="+this.$route.query.threeId);
         this.carTypeName=this.$route.query.carTypeName;
         this.threeId=this.$route.query.threeId;
-        this.getYearListForMobile(this.$route.query.threeId);
+        this.getYearListForMobile(this.threeId);
       },
     watch:{
       mobileEngineTypeList(val){
@@ -98,7 +97,6 @@
         },
         changeCarType(oneObject) {
           this.twoList=oneObject.twoLevelCarTypeList;
-
         },
         toSaeDetail(engine){
           this.getSaeListForMobile({threeId: engine.three.id, engineTypeId: engine.engineType.id, yearId: engine.year.id}).then(res=>{

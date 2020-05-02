@@ -109,13 +109,11 @@
                   message: "登录成功",
                   type: 'success'
                 })
-                console.log(window.location.href)
                 localStorage.setItem('loginUrl', window.location.href)
                 _this.$store.commit('login', resp.user);
                 this.remenberPassWord();
                 this.recoredOlis();
                 var path = _this.$route.query.redirect;
-                console.log("sdd"+path);
                 _this.$router.replace({path: path == '/' || path == undefined ? '/home' : path});
               }
             });

@@ -185,7 +185,6 @@
         fd.append('file', file, file.name)
         filePost('olis/olisImage',fd).then(res=>{
           this.imageUrl = this.imgUrlHead + res.data.path+"/"+res.data.fileName;
-          console.log("imageUrl="+this.imageUrl)
           let uploadFile = {
             "fileName": res.data.fileName,
             "id":res.data.id

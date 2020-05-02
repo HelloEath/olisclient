@@ -255,6 +255,7 @@
           this.deleteDevice(row.id).then(res=>{
             if(res.code==0){
               this.$message.success('删除设备信息成功');
+              localStorage.removeItem('token');
               this.refreshTextData();
             }
           })

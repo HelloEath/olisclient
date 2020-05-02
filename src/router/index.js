@@ -191,6 +191,7 @@ const mobileSaeDetails = r =>
     () => r(require("../views/mobileView/sae-detail")),
     "mobileSaeDetails"
   );
+const mobileOlisDesc=r=>require.ensure([],()=>r(require("../views/mobileView/olis-desc")),'mobileOlisDesc');
 Vue.use(Router);
 
 export default new Router({
@@ -243,6 +244,12 @@ export default new Router({
       name:"mobileSaeDetails",
       component:mobileSaeDetails
     },
+    {
+      path:"/mobile-olis-desc",
+      name:"mobileOlisDesc",
+      component:mobileOlisDesc
+    },
+
 
     {
       path: "/index",

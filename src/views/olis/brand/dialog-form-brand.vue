@@ -187,7 +187,7 @@
             "fileName": res.data.fileName,
             "id":res.data.id
           };
-          this.rowData.uploadFile = uploadFile;
+          this.rowData.uploadFile = res.data;
           this.$message.success('上传成功');
         })
         return false

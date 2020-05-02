@@ -115,7 +115,6 @@
                 this.remenberPassWord();
                 this.recoredOlis();
                 var path = _this.$route.query.redirect;
-                console.log("sdd"+path);
                 _this.$router.replace({path: path == '/' || path == undefined ? '/home' : path});
               }
             });

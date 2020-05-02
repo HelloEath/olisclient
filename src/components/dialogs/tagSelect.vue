@@ -167,7 +167,6 @@
           let triggerRules = arr;
           this.loading = true;
           let obj = {branch: this.parentStr, triggerRules: triggerRules};
-          console.log(obj);
           this.getDataQuantity({branch: this.parentStr, triggerRules: triggerRules}).then(res=>{
             if (res.code == '0') {
               let result = res.data;

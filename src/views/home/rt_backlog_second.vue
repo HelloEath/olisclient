@@ -78,7 +78,6 @@ export default {
           this.handleCurrentChange(this.params.pageNo)
         },
       reset() {
-        debugger
         this.$refs.child.reSet();
       }
     },

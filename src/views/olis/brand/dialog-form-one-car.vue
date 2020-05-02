@@ -131,7 +131,6 @@
 
     watch:{
       "allBrandList"(val){
-        debugger
       }
     },
     created() {

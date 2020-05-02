@@ -236,8 +236,6 @@ export default {
       }
     };
     const checkRegion = (rule, value, callback) => {
-      debugger
-
       if (value.id) {
         callback();
       }else {
@@ -347,7 +345,6 @@ export default {
     save() {
       this.$refs['rowData'].validate((valid) => {
         if (valid) {
-          console.log(this.rowData)
           this.buttonLoading = true;
           this.saveUser(this.rowData).then(res => {
             if (res.code == 0) {

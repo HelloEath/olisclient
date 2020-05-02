@@ -126,7 +126,6 @@ import { getStore } from '@/common/utils'
           cancelButtonText: '再考虑下',
           type: 'warning'
         }).then(() => {
-          console.log(row.id);
           this.delRole(row.id).then(
             () => {
               this.$message.success('删除角色成功');

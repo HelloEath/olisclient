@@ -1,11 +1,13 @@
 <template>
   <div class="bg" v-show="isShowLogin">
+    <el-button  @click="flash" class="flash-btn"><i class="el-icon-refresh"></i></el-button>
+
     <el-button round @click="carOlisUsed" class="car-olis-user-btn">轿车用油查询</el-button>
     <el-dialog title="注册信息"
                :visible.sync="isShowLoginDialog"
     >
       <el-form
-       style="margin: 0px auto;width: 90%"
+        style="margin: 0px auto;width: 90%"
         :model="rowData"
         :rules="rules"
         ref="rowData"
@@ -85,9 +87,9 @@
       return {
         isShowLoginDialog: false,
         buttonLoading: false,
-        isShowLogin:false,
-        topImgUrl:"/static/images/t2_01.png",//移动端头图片,
-        olisType:"澳润",
+        isShowLogin: false,
+        topImgUrl: "http://47.110.243.203:8102/olisserver/appconfig/20200423/t2_01.png",//移动端头图片,
+        olisType: "澳润",
         rowData: {
           region: {
             id: ''
@@ -146,25 +148,30 @@
       ]),
       getDeviceValidate() {
         this.deviceValidate(this.rowData).then(res => {
-          if (res.data == '-1') {
-            this.carOlisUsed();
-            this.isShowLogin=true;
-            console.log("不存在该设备")
-          } else if (res.data=='1') {
+          if (res.data.code == '0') {
             localStorage.setItem('mobileLoginUrl', window.location.href)
+            localStorage.setItem('token', res.data.data)
             this.$router.push({name: 'mobileBrandList'})
-          }else if (res.data=='0') {
+          } else if (res.data.code == '1') {
             console.log("设备未授权");
-            this.isShowLogin=true;
+            this.isShowLogin = true;
             this.$message.error('设备未授权');
-
+            localStorage.setItem('token', res.data.data)
+          } else {
+            this.carOlisUsed();
+            this.isShowLogin = true;
+            console.log("不存在该设备")
           }
         })
       },
-      initData() {
-        localStorage.setItem("topImgUrl",this.topImgUrl);
-        localStorage.setItem("olisType",this.olisType);
+      flash(){
+        this.getDeviceValidate();
+      },
 
+      initData() {
+        localStorage.setItem("topImgUrl", this.topImgUrl);
+        localStorage.setItem("olisType", this.olisType);
+        //localStorage.removeItem("token");
         this.$store.state.isShowStep = false;
         this.getMacAddress();
         this.getDeviceValidate();
@@ -176,73 +183,58 @@
       //获取设备的唯一标识号
       getMacAddress() {
         try {
-            //调用java代码获取max地址
-            let macAddress = window.t.getMacAddress();
-            console.log("macAddress======="+macAddress)
-            this.rowData.deviceType='02';
-            this.rowData.deviceCode = macAddress;
-            //保存设备id在本地，用于鉴权
-            localStorage.setItem("deviceId",macAddress);
-            localStorage.setItem("systemType",this.rowData.systemType);
-          localStorage.setItem("deviceType","android");
+          //调用java代码获取max地址
+          let macAddress = window.t.getMacAddress();
+          this.rowData.deviceType = '02';
+          this.rowData.deviceCode = macAddress;
+          //保存设备id在本地，用于鉴权
+          localStorage.setItem("deviceId", macAddress);
+          localStorage.setItem("deviceType", "android");
 
-        }catch (e) {
-          localStorage.setItem("deviceType","pc");
+        } catch (e) {
           console.log("java代码调用失败")
+          this.getDeviceIP((ip) => {
+
+            // 打印客户端ip
+            console.log(ip);
+            localStorage.setItem("deviceType", "pc");
+            localStorage.setItem("deviceId", ip);
+            this.rowData.deviceType = '01';
+            this.rowData.deviceCode = ip;
+          });
         }
+        localStorage.setItem("systemType", this.rowData.systemType);
+
 
       },
-      getBrowserInfo() {
-        var agent = navigator.userAgent.toLowerCase();
-        console.log(agent);
-        var arr = [];
-        var system = agent.split(' ')[1].split(' ')[0].split('(')[1];
-        arr.push(system);
-        var regStr_edge = /edge\/[\d.]+/gi;
-        var regStr_ie = /trident\/[\d.]+/gi;
-        var regStr_ff = /firefox\/[\d.]+/gi;
-        var regStr_chrome = /chrome\/[\d.]+/gi;
-        var regStr_saf = /safari\/[\d.]+/gi;
-        var regStr_opera = /opr\/[\d.]+/gi;
-        //IE
-        if (agent.indexOf("trident") > 0) {
-          arr.push(agent.match(regStr_ie)[0].split('/')[0]);
-          arr.push(agent.match(regStr_ie)[0].split('/')[1]);
-          return arr;
-        }
-        //Edge
-        if (agent.indexOf('edge') > 0) {
-          arr.push(agent.match(regStr_edge)[0].split('/')[0]);
-          arr.push(agent.match(regStr_edge)[0].split('/')[1]);
-          return arr;
-        }
-        //firefox
-        if (agent.indexOf("firefox") > 0) {
-          arr.push(agent.match(regStr_ff)[0].split('/')[0]);
-          arr.push(agent.match(regStr_ff)[0].split('/')[1]);
-          return arr;
-        }
-        //Opera
-        if (agent.indexOf("opr") > 0) {
-          arr.push(agent.match(regStr_opera)[0].split('/')[0]);
-          arr.push(agent.match(regStr_opera)[0].split('/')[1]);
-          return arr;
-        }
-        //Safari
-        if (agent.indexOf("safari") > 0 && agent.indexOf("chrome") < 0) {
-          arr.push(agent.match(regStr_saf)[0].split('/')[0]);
-          arr.push(agent.match(regStr_saf)[0].split('/')[1]);
-          return arr;
-        }
-        //Chrome
-        if (agent.indexOf("chrome") > 0) {
-          arr.push(agent.match(regStr_chrome)[0].split('/')[0]);
-          arr.push(agent.match(regStr_chrome)[0].split('/')[1]);
-          return arr;
-        } else {
-          arr.push('请更换主流浏览器，例如chrome,firefox,opera,safari,IE,Edge!')
-          return arr;
-        }
+
+      //获取当前浏览器设备ip
+      getDeviceIP(onNewIP) {
+        let MyPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+        let pc = new MyPeerConnection({
+          iceServers: []
+        });
+        let noop = () => {
+        };
+        let localIPs = {};
+        let ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
+        let iterateIP = (ip) => {
+          if (!localIPs[ip]) onNewIP(ip);
+          localIPs[ip] = true;
+        };
+        pc.createDataChannel('');
+        pc.createOffer().then((sdp) => {
+          sdp.sdp.split('\n').forEach(function (line) {
+            if (line.indexOf('candidate') < 0) return;
+            line.match(ipRegex).forEach(iterateIP);
+          });
+          pc.setLocalDescription(sdp, noop, noop);
+        }).catch((reason) => {
+        });
+        pc.onicecandidate = (ice) => {
+          if (!ice || !ice.candidate || !ice.candidate.candidate || !ice.candidate.candidate.match(ipRegex)) return;
+          ice.candidate.candidate.match(ipRegex).forEach(iterateIP);
+        };
       },
 
       save() {
@@ -251,11 +243,14 @@
             this.buttonLoading = true;
             this.savedeviceDetailByMobile(this.rowData).then(res => {
               if (res.code == 0) {
-                this.buttonLoading = false;
                 this.$message.success('信息保存成功');
                 this.isShowLoginDialog = false;
-
+                localStorage.setItem('token', res.data)
               }
+              if (res.code==2){
+                this.$message.error('信息保存失败');
+              }
+              this.buttonLoading = false;
             })
 
           } else {
@@ -287,6 +282,21 @@
       right: 60px;
       top: 28%;
     }
+    .flash-btn {
+      border-radius: 60px 60px;
+      font-size: 30px;
+      width: 72px;
+      height: 72px;
+      position: fixed;
+      right: 60px;
+      top: 80%;
+    }
+  }
+  .page-component__scroll{
+    //height: 100%;
+  }
+  .page-component__scroll .el-scrollbar__wrap {
+    overflow-x: auto;
   }
 
 </style>
