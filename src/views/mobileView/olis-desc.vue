@@ -2,7 +2,7 @@
   <el-row style="margin-bottom: 40px">
     <el-row style="background: #0072DC;">
       <el-col :span="16" :offset="6">
-        <el-image :src="topImgUrl"></el-image>
+      <!--  <el-image :src="topImgUrl"></el-image>-->
       </el-col>
     </el-row>
 
@@ -34,7 +34,7 @@
     name: "olis-desc",
     data() {
       return {
-        company: "东营澳润公司",
+        company: "",
         brand: "",
         carType1: "",
         carType2: "",

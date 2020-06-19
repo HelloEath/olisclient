@@ -1,9 +1,9 @@
 <template>
   <el-row>
     <el-row style="background: #0072DC;">
-      <el-col :span="16" :offset="6">
+     <!-- <el-col :span="16" :offset="6">
         <el-image :src="topImgUrl" ></el-image>
-      </el-col>
+      </el-col>-->
     </el-row>
     <el-row style="background: #0072DC;">
       <el-col :span="12" :offset="6" style="display: flex;margin-top: -30px">

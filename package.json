@@ -1,15 +1,14 @@
 {
-  "name": "olisclient",
+  "name": "olisclient-mobile",
   "version": "1.0.0",
-  "description": "olis client",
+  "description": "olis mobile client",
   "author": "helloEarther",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
     "build-server": "node --max_old_space_size=256  build/build.js",
-	"build": "node  build/build.js"
-
+    "build": "node  build/build.js"
   },
   "dependencies": {
     "axios": "^0.18.1",

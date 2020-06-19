@@ -3,7 +3,7 @@
       <el-backtop class='page-component__scroll'></el-backtop>
       <el-row style="background: #0072DC;">
         <el-col :span="16" :offset="6">
-          <el-image :src="topImgUrl" ></el-image>
+         <!-- <el-image :src="topImgUrl" ></el-image>-->
         </el-col>
       </el-row>
 
