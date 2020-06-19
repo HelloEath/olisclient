@@ -251,7 +251,7 @@
               if (res.code == 0) {
                 this.$message.success('信息保存成功');
                 this.isShowLoginDialog = false;
-                localStorage.setItem('token', res.data)
+                //localStorage.setItem('token', res.data)
               }
               if (res.code == 2) {
                 this.$message.error('信息保存失败');

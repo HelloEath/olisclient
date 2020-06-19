@@ -14,7 +14,6 @@
   import AppMain from "./layout/AppMain"
   import backToTop from "@/components/backToTop"
   import ResizeMixin from '@/mixins/ResizeHandler'
-  import init from '@/mixins/init'
   import { mapGetters, mapActions } from 'vuex'
 
   export default {

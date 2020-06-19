@@ -1,7 +1,7 @@
 {
-  "name": "olisclient",
+  "name": "olisclient-mobile",
   "version": "1.0.0",
-  "description": "olis client",
+  "description": "olis mobile client",
   "author": "helloEarther",
   "private": true,
   "scripts": {
