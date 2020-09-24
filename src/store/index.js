@@ -1,4 +1,4 @@
-import Vue from "vue";
+//import Vue from "vue";
 import Vuex from "vuex";
 import global from "./global";
 import user from "./user";
@@ -12,7 +12,7 @@ import brand from "./brand"
 import imgBase from "./imgBase"
 import olis from "./olis"
 import mobile from "./mobile"
-Vue.use(Vuex);
+//Vue.use(Vuex);
 export default new Vuex.Store({
   state:{
     isShowStep:false

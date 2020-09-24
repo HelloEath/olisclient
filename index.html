@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>后台管理系统</title>
-<!--
-    <link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico" />
--->
-<!--
-    <script src="./static/js/jquery.min.js"></script>
--->
+<head>
+  <meta charset="utf-8">
+  <title>后台管理系统</title>
 
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <!--[if lt IE 11]>
+  <style>
+    * {
+      box-sizing: content-box;
+      -moz-box-sizing: inherit;
+      -webkit-box-sizing: inherit;
+    }
+  </style>
+  <![endif]-->
+  <!--[if lt IE 9]>
+  <link href="https://cdn.bootcss.com/element-ui/2.9.1/theme-chalk/index.css" rel="stylesheet">
+  <link href="https://cdn.bootcdn.net/ajax/libs/view-design/4.1.3/styles/iview.min.css" rel="stylesheet">
 
-    <!--[if lt IE 11]>
-    <style>
-      * {
-        box-sizing: content-box;
-        -moz-box-sizing: inherit;
-        -webkit-box-sizing: inherit;
-      }
-    </style>
-    <![endif]-->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-    <script>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"></script>
+  <script src="https://cdn.bootcss.com/element-ui/2.9.1/index.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/view-design/4.1.3/iview.min.js"></script>
+  <script>
     //判断浏览器类型及版本，IE9及以下，火狐21以下，chrome23以下提示浏览器版本过低
     function getBrowserInfo() {
       var agent = navigator.userAgent.toLowerCase();
@@ -38,30 +39,36 @@
         reIE.test(agent);
         var fIEVersion = parseFloat(RegExp["$1"]);
         if (fIEVersion < 10) {
-          alert("您正在使用的浏览器版本过低，为了您的最佳体验，请先升级浏览器。");window.location.href="http://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href);
+          alert("您正在使用的浏览器版本过低，为了您的最佳体验，请先升级浏览器。");
+          window.location.href = "http://support.dmeng.net/upgrade-your-browser.html?referrer=" + encodeURIComponent(window.location.href);
         }
       }
       //firefox
       if (agent.indexOf("firefox") > 0) {
         var browser = agent.match(regStr_ff);
         var b_version = parseInt((browser + "").replace(/[^0-9.]/ig, ""));
-        if(b_version < 21) {
-          alert("您正在使用的浏览器版本过低，为了您的最佳体验，请先升级浏览器。");window.location.href="http://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href);
+        if (b_version < 21) {
+          alert("您正在使用的浏览器版本过低，为了您的最佳体验，请先升级浏览器。");
+          window.location.href = "http://support.dmeng.net/upgrade-your-browser.html?referrer=" + encodeURIComponent(window.location.href);
         }
       }
       //Chrome
       if (agent.indexOf("chrome") > 0) {
         var browser = agent.match(regStr_chrome);
         var b_version = parseInt((browser + "").replace(/[^0-9.]/ig, ""));
-        if(b_version < 23) {
-          alert("您正在使用的浏览器版本过低，为了您的最佳体验，请先升级浏览器。");window.location.href="http://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href);
+        if (b_version < 23) {
+          alert("您正在使用的浏览器版本过低，为了您的最佳体验，请先升级浏览器。");
+          window.location.href = "http://support.dmeng.net/upgrade-your-browser.html?referrer=" + encodeURIComponent(window.location.href);
         }
       }
     }
+
     getBrowserInfo();
-    </script>
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+  </script>
+</head>
+<body>
+<div id="app"></div>
+
+
+</body>
 </html>

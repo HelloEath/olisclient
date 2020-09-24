@@ -1,26 +1,21 @@
-import Vue from "vue";
-import Router from "vue-router";
+//import Vue from "vue";
+//import Router from "vue-router";
 /** activity start （2019.06.19整理activity文件夹包含的所有路由路径） */
 
+const index = () => import('../views/index.vue')
 
-const index = r =>
-  require.ensure([], () => r(require("../views/index.vue")), "index");
-const home = r =>
-  require.ensure([], () => r(require("../views/home/home.vue")), "home");
+const home = () => import('../views/home/home.vue')
 
-const Login = r =>
-  require.ensure([], () => r(require("../views/login.vue")), "Login");
+const Login = () => import('../views/login.vue')
 
-const LoginAoRun = r =>
-  require.ensure([], () => r(require("../views/login-aorun.vue")), "LoginAoRun");
+const LoginAoRun = () => import('../views/login-aorun.vue')
 
-const LoginOther = r =>
-  require.ensure([], () => r(require("../views/login-other.vue")), "LoginOther");
-const Index = r =>
-  require.ensure([], () => r(require("../views/index.vue")), "Index");
-const page_404 = r =>
-  require.ensure([], () => r(require("../views/404.vue")), "page_404");
+const LoginOther = () => import('../views/login-other.vue')
 
+const Index = () => import('../views/index.vue')
+
+
+const page_404 = () => import('../views/404.vue')
 
 
 //一级车型管理
@@ -199,9 +194,9 @@ const mobileSaeDetails = r =>
     "mobileSaeDetails"
   );
 const mobileOlisDesc=r=>require.ensure([],()=>r(require("../views/mobileView/olis-desc")),'mobileOlisDesc');
-Vue.use(Router);
+//Vue.use(Router);
 
-export default new Router({
+export default new VueRouter({
   //mode:'history',
   routes: [
     {

@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: ["babel-polyfill", "./src/main.js"]
+    app: ["babel-polyfill", "./src/main.js"],
   },
   devServer: {
     inline: true//实时刷新
@@ -29,7 +29,14 @@ module.exports = {
     }
   },
   externals: {
-    'jquery': 'jQuery'
+    'jquery': 'jQuery',
+    // 要引入的资源的名字：该模块提供给外部引用的名字(由对应的库自定)
+        'vue': 'Vue',
+    "element-ui": "ELEMENT",
+    'vue-router': 'VueRouter',
+    'axios': 'axios',
+    'iview': 'iview',
+
   },
   module: {
     rules: [
