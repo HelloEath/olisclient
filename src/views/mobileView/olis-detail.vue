@@ -2,7 +2,7 @@
   <el-row>
    <!-- <el-row style="background: #0072DC;">
       <el-col :span="16" :offset="6">
-        <keep-alive> <el-image :src="topImgUrl"></el-image></keep-alive>
+        <el-image :src="topImgUrl"></el-image>
       </el-col>
     </el-row>-->
 

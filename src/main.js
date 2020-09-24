@@ -21,6 +21,9 @@ import 'vue-photo-preview/dist/skin.css';
 import './assets/css/sprite.scss'
 // 引入自定义loading组件
 import Loading from './components/loading';
+// 引入echarts
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 Vue.use(Loading);
 Vue.use(preview);
 Vue.use(Vuelidate);

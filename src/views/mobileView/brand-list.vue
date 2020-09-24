@@ -3,7 +3,7 @@
       <el-backtop class='page-component__scroll'></el-backtop>
      <!-- <el-row style="background: #0072DC;">
         <el-col :span="16" :offset="6">
-          <keep-alive> <el-image :src="topImgUrl"></el-image></keep-alive>
+          <el-image :src="topImgUrl" ></el-image>
         </el-col>
       </el-row>-->
 
@@ -70,6 +70,8 @@
         this.$store.state.isShowStep=true;
         this.getAllBrandListByMobile({systemType:'aorun'});
         this.imgUrlHead = server.substring(0,server.length-1);
+
+
       }
     }
 </script>

@@ -6,8 +6,7 @@ const state = {
   engineList:{},
   apiList:{},
   engineDetail: {},
-  engineTypeDetail:{},
-  apiDescList:{}
+  engineTypeDetail:{}
 };
 
 const getters = {
@@ -16,8 +15,6 @@ const getters = {
   engineDetail: state => state.engineDetail,
   engineTypeDetail:state=>state.engineTypeDetail,
   apiList:state=>state.apiList,
-  apiDescList:state=>state.apiDescList,
-
 };
 
 const mutations = {
@@ -30,9 +27,6 @@ const mutations = {
   },
   Get_engine_List(state, engineList){
     state.engineList = Object.assign({}, engineList);
-  },
-  Get_api_desc_List(state, apiDescList){
-    state.apiDescList = Object.assign({}, apiDescList);
   },
   Get_engine_type_Detail(state, engineTypeDetail){
     state.engineTypeDetail = Object.assign({}, engineTypeDetail);
@@ -85,19 +79,6 @@ const actions = {
     })
   },
 
-  /**
-   * 通过api访问服务端，获取apiDesc列表
-   * @param dispatch
-   * @param commit
-   * @param state
-   * @param rootState
-   * @param params
-   */
-  getApiDescList({commit}, params) {
-    axios.get("SaeDesc/apiDescList", {params}).then(res => {
-      if(res.code === "0") commit("Get_api_desc_List", res.data);
-    })
-  },
 
   /**
    * 通过api访问服务端，根据年限id获取指定发动机类型列表信息
@@ -147,18 +128,6 @@ const actions = {
   saveSaeDetail({commit}, params) {
     return axios.post("SaeDesc/SaeDesc", params);
   },
-  /**
-   * 通过api访问服务端，修改Sae api_name信息
-   * @param dispatch
-   * @param commit
-   * @param state
-   * @param rootState
-   * @param params
-   */
-  updateApiDesc({commit}, params) {
-    return axios.post("SaeDesc/apiName", params);
-  },
-
   /**
    * 通过api访问服务端，根据id删除指定设备信息
    * @param dispatch

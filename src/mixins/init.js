@@ -15,7 +15,7 @@ export default {
       this.getCurrentUser();
       this.getMenus();
      // this.getRegions();
-      //this.getSystemParams();
+      this.getSystemParams();
       //this.getYears();
     }
   }
