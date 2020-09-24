@@ -7,7 +7,6 @@ import router from './router/index.js';
 import Vuelidate from 'vuelidate';
 import store from './store';
 /* iconfont */
-import vueFilter from './common/filter.js';
 
 import './assets/iconfont/iconfont.js';
  /* eslint-disable no-new */
@@ -28,9 +27,6 @@ Vue.use(Vuelidate);
 // Vue.config.productionTip = false;
 Vue.use(Iview);
 Vue.use(ElementUI);
-for (let key in vueFilter){
-  Vue.filter(key,vueFilter[key])
-}
 import VTooltip from 'v-tooltip'
 Vue.use(VTooltip)
 Vue.bus = new Vue();

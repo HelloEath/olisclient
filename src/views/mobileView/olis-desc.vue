@@ -1,10 +1,10 @@
 <template>
   <el-row style="margin-bottom: 40px">
-    <el-row style="background: #0072DC;">
+   <!-- <el-row style="background: #0072DC;">
       <el-col :span="16" :offset="6">
         <keep-alive> <el-image :src="topImgUrl"></el-image></keep-alive>
       </el-col>
-    </el-row>
+    </el-row>-->
 
     <el-row style="margin-top: 50px">
       <el-col :span="12" :offset="6">

@@ -91,14 +91,14 @@
         buttonLoading: false,
         isShowLogin: false,
         topImgUrl: "http://47.110.243.203:8102/olisserver/appconfig/20200423/t2_01.png",//移动端头图片,
-        olisType: "澳润",
+        olisType: "",
         rowData: {
           region: {
             id: ''
           },
           deviceProxy: '',
           deviceProxyNumber: '',
-          systemType: 'aorun',
+          systemType: 'ttt',
           deviceType: '',
           deviceCode: ''
         },
@@ -175,6 +175,8 @@
         localStorage.setItem("olisType", this.olisType);
         //localStorage.removeItem("token");
         this.$store.state.isShowStep = false;
+        localStorage.removeItem('token')
+
         this.getMacAddress();
         this.getDeviceValidate();
         this.getAllRegionsForMobile();
@@ -249,7 +251,7 @@
               if (res.code == 0) {
                 this.$message.success('信息保存成功');
                 this.isShowLoginDialog = false;
-                localStorage.setItem('token', res.data)
+                //localStorage.setItem('token', res.data)
               }
               if (res.code == 2) {
                 this.$message.error('信息保存失败');
@@ -273,7 +275,7 @@
   .bg {
     width: 100%;
     height: 104.5%;
-    background-image: url(../../assets/mobile/images/pic123.jpg);
+    background-image: url(../../assets/mobile/images/a4a9b06dd3c93b08792b064aa4a4db2b.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 100%;
