@@ -1,7 +1,7 @@
 <template>
   <div class="login-view">
     <div class="login-view-container">
-      <h1>{{olis.olisShowName}}后台管理系统</h1>
+      <h1>{{olis.olisShowName}}润滑油后台管理系统</h1>
       <el-card class="login-view-form">
         <el-form label-position="left" ref="loginForm" :model="loginForm" :rules="rules"  v-loading="loading">
           <div class="logo" style="height: 30px">
@@ -69,9 +69,9 @@
           remenberPassWord: false,
         },
         olis:{
-          olisType:'ttt',
-          olisName:'ttt',
-          olisShowName:''
+          olisType:'aorun',
+          olisName:'aorun',
+          olisShowName:'澳润'
         },
         rules: {
           userName: [
@@ -109,7 +109,6 @@
                   message: "登录成功",
                   type: 'success'
                 })
-                localStorage.setItem("Authorization",resp.Authorization);
                 localStorage.setItem('loginUrl', window.location.href)
                 _this.$store.commit('login', resp.user);
                 this.remenberPassWord();

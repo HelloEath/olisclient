@@ -1,6 +1,6 @@
 <template>
   <div class="bg" v-show="isShowLogin">
-    <el-button  @click="flash" class="flash-btn"><i class="el-icon-refresh"></i></el-button>
+    <el-button @click="flash" class="flash-btn"><i class="el-icon-refresh"></i></el-button>
 
     <el-button round @click="carOlisUsed" class="car-olis-user-btn">轿车用油查询</el-button>
     <el-dialog title="注册信息"
@@ -69,6 +69,7 @@
   </div>
 </template>
 
+
 <script>
   import {mapState, mapGetters, mapActions} from 'vuex'
 
@@ -76,6 +77,7 @@
 
     name: "mobile-login",
     data() {
+
       const checkPhoneNumber = (rule, value, callback) => {
         if (value && (!(/^[1][34578]\d{9}$/).test(value) || !(/^[1-9]\d*$/).test(value) || value.length !== 11)) {
           callback(new Error('手机号码不符合规范'))
@@ -89,14 +91,14 @@
         buttonLoading: false,
         isShowLogin: false,
         topImgUrl: "http://47.110.243.203:8102/olisserver/appconfig/20200423/t2_01.png",//移动端头图片,
-        olisType: "",
+        olisType: "澳润",
         rowData: {
           region: {
             id: ''
           },
           deviceProxy: '',
           deviceProxyNumber: '',
-          systemType: 'ttt',
+          systemType: 'aorun',
           deviceType: '',
           deviceCode: ''
         },
@@ -164,7 +166,7 @@
           }
         })
       },
-      flash(){
+      flash() {
         this.getDeviceValidate();
       },
 
@@ -173,8 +175,6 @@
         localStorage.setItem("olisType", this.olisType);
         //localStorage.removeItem("token");
         this.$store.state.isShowStep = false;
-        localStorage.removeItem('token')
-
         this.getMacAddress();
         this.getDeviceValidate();
         this.getAllRegionsForMobile();
@@ -196,7 +196,6 @@
         } catch (e) {
           console.log("java代码调用失败")
           this.getDeviceIP((ip) => {
-
             // 打印客户端ip
             console.log(ip);
             localStorage.setItem("deviceType", "pc");
@@ -212,31 +211,34 @@
 
       //获取当前浏览器设备ip
       getDeviceIP(onNewIP) {
-        let MyPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
-        let pc = new MyPeerConnection({
-          iceServers: []
-        });
-        let noop = () => {
-        };
-        let localIPs = {};
-        let ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
-        let iterateIP = (ip) => {
-          if (!localIPs[ip]) onNewIP(ip);
-          localIPs[ip] = true;
-        };
-        pc.createDataChannel('');
-        pc.createOffer().then((sdp) => {
+        let MyPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection
+        let pc = new MyPeerConnection({iceServers: []})
+        let noop = function () {
+        }
+        let localIPs = {}
+        let ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g
+
+        function iterateIP(ip) {
+          if (!localIPs[ip]) onNewIP(ip)
+          localIPs[ip] = true
+        }
+
+        pc.createDataChannel('')
+        pc.createOffer().then(function (sdp) {
           sdp.sdp.split('\n').forEach(function (line) {
-            if (line.indexOf('candidate') < 0) return;
-            line.match(ipRegex).forEach(iterateIP);
-          });
-          pc.setLocalDescription(sdp, noop, noop);
-        }).catch((reason) => {
-        });
-        pc.onicecandidate = (ice) => {
-          if (!ice || !ice.candidate || !ice.candidate.candidate || !ice.candidate.candidate.match(ipRegex)) return;
-          ice.candidate.candidate.match(ipRegex).forEach(iterateIP);
-        };
+            if (line.indexOf('candidate') < 0) return
+            line.match(ipRegex).forEach(iterateIP)
+          })
+          pc.setLocalDescription(sdp, noop, noop)
+        }).catch(function (reason) {
+          // An error occurred, so handle the failure to connect
+        })
+        // seen for candidate events
+        pc.onicecandidate = function (ice) {
+          if (!ice || !ice.candidate || !ice.candidate.candidate || !ice.candidate.candidate.match(ipRegex)) return
+          ice.candidate.candidate.match(ipRegex).forEach(iterateIP)
+        }
+
       },
 
       save() {
@@ -247,9 +249,9 @@
               if (res.code == 0) {
                 this.$message.success('信息保存成功');
                 this.isShowLoginDialog = false;
-                //localStorage.setItem('token', res.data)
+                localStorage.setItem('token', res.data)
               }
-              if (res.code==2){
+              if (res.code == 2) {
                 this.$message.error('信息保存失败');
               }
               this.buttonLoading = false;
@@ -271,7 +273,7 @@
   .bg {
     width: 100%;
     height: 104.5%;
-    background-image: url(../../assets/mobile/images/a4a9b06dd3c93b08792b064aa4a4db2b.jpg);
+    background-image: url(../../assets/mobile/images/pic123.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 100%;
@@ -294,9 +296,11 @@
       top: 80%;
     }
   }
-  .page-component__scroll{
+
+  .page-component__scroll {
     //height: 100%;
   }
+
   .page-component__scroll .el-scrollbar__wrap {
     overflow-x: auto;
   }

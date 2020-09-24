@@ -1,11 +1,11 @@
 <template>
     <el-row>
       <el-backtop class='page-component__scroll'></el-backtop>
-     <!-- <el-row style="background: #0072DC;">
+      <el-row style="background: #0072DC;">
         <el-col :span="16" :offset="6">
-          <el-image :src="topImgUrl" ></el-image>
+          <keep-alive> <el-image :src="topImgUrl"></el-image></keep-alive>
         </el-col>
-      </el-row>-->
+      </el-row>
 
       <el-row style="padding: 0px 20px">
         <el-col >
@@ -70,8 +70,6 @@
         this.$store.state.isShowStep=true;
         this.getAllBrandListByMobile({systemType:'aorun'});
         this.imgUrlHead = server.substring(0,server.length-1);
-
-
       }
     }
 </script>

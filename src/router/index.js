@@ -143,6 +143,13 @@ const olisPrizeManage = r =>
     () => r(require("../views/olis/olis_prize_manage")),
     "olisPrizeManage"
   );
+//api油品修改
+const apiDesc = r =>
+  require.ensure(
+    [],
+    () => r(require("../views/olis/api/api-desc")),
+    "apiDesc"
+  );
 
 const olisList = r =>
   require.ensure(
@@ -369,6 +376,12 @@ export default new Router({
           name: "olisPrizeManage",
           component: olisPrizeManage,
           meta: {title: "油品价格管理"},
+        },
+        {
+          path: "/api-desc",
+          name: "apiDesc",
+          component: apiDesc,
+          meta: {title: "api油品修改"},
         },
 
       ],
