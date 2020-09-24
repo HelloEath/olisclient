@@ -8,8 +8,7 @@
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
     "build-server": "node --max_old_space_size=256  build/build.js",
-	"build": "node  build/build.js"
-
+    "build": "node  build/build.js"
   },
   "dependencies": {
     "axios": "^0.18.1",
@@ -34,6 +33,7 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "address": "^1.1.2",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",

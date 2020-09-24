@@ -2,7 +2,7 @@
   <el-row>
     <el-row style="background: #0072DC;">
       <el-col :span="16" :offset="6">
-        <el-image :src="topImgUrl" ></el-image>
+        <keep-alive> <el-image :src="topImgUrl"></el-image></keep-alive>
       </el-col>
     </el-row>
 
@@ -19,7 +19,7 @@
         <div style="background: #000066;width:45%;margin-right: 20px;float: right;min-height: 400px">
           <el-row><div class="year_title" ><span style="align-self:center;margin-left: 20px;font-size: 20px;color: black">年限</span></div></el-row>
 
-            <el-row v-for=" item in mobileYearList" style="background-color: #FF9900;margin: 10px 0px;border-radius:20px;cursor: pointer;" >
+            <el-row v-for=" item in mobileYearList1" style="background-color: #FF9900;margin: 10px 0px;border-radius:20px;cursor: pointer;" >
               <div @click="getEngineType(item.id)">
                 <el-col :span="24" class="list-main" style="display: flex" >
                   <div style="margin-left:20px;padding: 10px"  >
@@ -63,6 +63,7 @@
             carTypeName:'',
             threeId:'',
             engineTypeList:[],
+            mobileYearList1:[]
           }
     },
       computed: {
@@ -82,6 +83,9 @@
     watch:{
       mobileEngineTypeList(val){
         this.engineTypeList=val;
+      },
+      mobileYearList(val){
+        this.mobileYearList1=val;
       }
     },
       methods:{

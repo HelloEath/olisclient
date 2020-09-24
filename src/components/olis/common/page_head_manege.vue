@@ -6,7 +6,7 @@
         label-width="80px"
         label-position="right"
         size="small">
-        <el-col :span="2">
+        <el-col :span="2" v-show="isShowAddBtn">
           <el-button
             size="small"
             class="button-item"
@@ -53,7 +53,7 @@
 
   export default {
     name: 'page-head',
-    props:['tips'],
+    props:{tips:{},isShowAddBtn:{default:true}},
 
     data () {
       return {

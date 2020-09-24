@@ -45,10 +45,8 @@ const getters = {
 const mutations = {
   updateUsers(state, users) {
     if (users) {
-      console.log(state.users );
       //users=users.content.filter(item => item.op==0)
       state.users = users;
-      console.log(state.users );
       users.content.forEach(user => {
         user.status === 1 ?
           user.showStatus = '禁用' :
@@ -72,7 +70,7 @@ const mutations = {
     state.userDetail = userDetail;
   },
   updateRoles(state, roles) {
-    roles=roles.filter(ele => ele.code ==null);
+    //roles=roles.filter(ele => ele.code ==null);
     state.roles = roles;
   },
   updateRole(state, role) {
